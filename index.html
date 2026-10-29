@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consorcios Ramos Mejía | Administración Integral de Propiedad Horizontal</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Top Bar Bar Top Notification -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center text-emerald-400 font-semibold">
+                    <i class="fa-solid fa-certificate mr-1.5"></i> Inscriptos en el Registro Público de Administradores (RPA)
+                </span>
+                <span class="hidden md:inline text-slate-500">|</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Cobertura en CABA y Provincia de Buenos Aires</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:+541144445555" class="hover:text-amber-400 transition-colors"><i class="fa-solid fa-phone mr-1"></i> (011) 4444-5555</a>
+                <a href="https://wa.me/5491144445555" target="_blank" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Consultas</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-700 rounded-lg flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        <!-- Custom SVG Monogram Building Isotype -->
+                        <svg class="w-8 h-8 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 9h1M9 13h1M9 17h1M15 13h1M15 17h1" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold text-white tracking-wider block">RAMOS MEJÍA</span>
+                        <span class="text-xs uppercase tracking-widest text-amber-500 font-bold block">Administración de Consorcios</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#rol" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">¿Qué Hacemos?</a>
+                    <a href="#servicios" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Servicios</a>
+                    <a href="#cotizador" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Cotizador</a>
+                    <a href="#testimonios" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Reseñas</a>
+                    <a href="#faq" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Preguntas Frecuentes</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#presupuesto" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-5 py-2.5 rounded-lg shadow-md hover:shadow-amber-500/20 transition-all text-sm flex items-center">
+                        <i class="fa-solid fa-file-invoice-dollar mr-2"></i> Pedir Presupuesto
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-white p-2 rounded-md focus:outline-none" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#rol" class="block text-slate-300 hover:text-amber-400 py-2 font-medium">¿Qué Hacemos?</a>
+            <a href="#servicios" class="block text-slate-300 hover:text-amber-400 py-2 font-medium">Servicios</a>
+            <a href="#cotizador" class="block text-slate-300 hover:text-amber-400 py-2 font-medium">Cotizador</a>
+            <a href="#testimonios" class="block text-slate-300 hover:text-amber-400 py-2 font-medium">Reseñas</a>
+            <a href="#faq" class="block text-slate-300 hover:text-amber-400 py-2 font-medium">Preguntas Frecuentes</a>
+            <a href="#presupuesto" class="block w-full text-center bg-amber-500 text-slate-950 font-bold py-3 rounded-lg mt-2">Pedir Presupuesto</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-slate-900 text-white overflow-hidden py-20 lg:py-32">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1.5 rounded-full text-amber-400 text-xs sm:text-sm font-semibold">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Matrícula Oficial RPA - CABA & Provincia de Buenos Aires</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Gestión transparente y eficiente para su <span class="text-gradient-gold">consorcio</span>
+                        </h1>
+                        <p class="text-slate-300 text-lg sm:text-xl max-w-2xl font-light">
+                            Optimizamos los recursos de su edificio con rigurosidad contable, asesoramiento legal especializado y mantenimiento técnico integral.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                            <a href="#presupuesto" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all text-center flex items-center justify-center text-lg">
+                                Cotizar Mi Consorcio <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#servicios" class="border border-slate-700 hover:bg-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-xl transition-all text-center">
+                                Explorar Servicios
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800 text-center lg:text-left">
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">100%</p>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">Transparencia</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">+15 Años</p>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">Experiencia</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">24/7</p>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">Urgencias</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hero Feature Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-slate-800/80 backdrop-blur border border-slate-700 p-8 rounded-2xl shadow-2xl relative">
+                            <div class="absolute -top-3 -right-3 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Auditoría Inicial Gratis
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fa-solid fa-clipboard-check text-amber-400 mr-2.5"></i> Compromiso Institucional
+                            </h3>
+                            <ul class="space-y-4 text-slate-300 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Liquidación de expensas clara y detallada con respaldatorios digitales.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Cumplimiento estricto del Código Civil y Comercial de la Nación (Ley 13.512 / Ley 941 CABA).</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Proveedores homologados y cotizaciones comparativas permanentes.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Atención personalizada y reuniones periódicas con el Consejo de Propietarios.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: ¿Qué hace un Administrador de Consorcios? -->
+        <section id="rol" class="py-20 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Marco Institucional</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">¿Qué hace el Administrador de Consorcios?</p>
+                    <p class="mt-4 text-slate-600 leading-relaxed">
+                        El administrador es el representante legal del consorcio ejecutor de las decisiones de la Asamblea de Propietarios, encargado de velar por la conservación de las partes comunes y la óptima convivencia.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-gavel"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Representación Legal y Regulación</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aseguramos la inscripción legal del consorcio, cumplimiento con la AFIP, Libro de Actas, Libro de Órdenes y Normativas Municipales de CABA y Provincia de Buenos Aires.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Rendición de Cuentas y Expensas</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Elaboración puntual de expensas ordinarias y extraordinarias, cobranza activa de morosos, balances anuales transparentes e informes para el Consejo.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Conservación del Edificio</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Mantenimiento preventivo y correctivo de instalaciones comunes, supervisión de personal de maestranza y contratación de pólizas de seguro obligatorias.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Servicios Destacados -->
+        <section id="servicios" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Servicios Corporativos</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Soluciones Integrales para el Consorcio</p>
+                    <p class="mt-4 text-slate-600">
+                        Centralice todos los requerimientos operativos, legales, contables y de mantenimiento en una sola administración profesional.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-amber-500 transition-all group">
+                        <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Liquidación de Sueldos y Cargas Sociales</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Especialización en SUTERH (F.931, cargas previsionales, aportes de sindicato, horas extras, suplencias y desvinculaciones laborales seguras).
+                        </p>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-amber-500 transition-all group">
+                        <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Servicios Contables e Impositivos</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Gestión impositiva ante AFIP, ARBA y AGIP. Declaraciones juradas, balances anuales auditados y conciliaciones bancarias diarias.
+                        </p>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-amber-500 transition-all group">
+                        <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Asesoría Legal Especializada</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Cuerpo de letrados para mediaciones, redactado de reglamentos, ejecución de expensas por mora y defensa letrada ante reclamos.
+                        </p>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-amber-500 transition-all group">
+                        <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Mantenimiento de Servicios Varios</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Atención de plomería, electricidad de potencia, bombas de agua, tableros centrales, mantenimiento de ascensores matriculado y calderas.
+                        </p>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-amber-500 transition-all group">
+                        <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Arquitectura e Ingeniería Técnica</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Informes técnicos, verificación de fachadas (Ley 6116 / Conservación de Edificios), dirección de obras y asesoría estructural.
+                        </p>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:border-amber-500 transition-all group">
+                        <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-broom"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Limpieza, Fumigación y Tercerización</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Planes integrales de limpieza, desinfección, control de plagas certificado y tercerización de servicios generales de maestranza.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cotizador Interactivo en Tiempo Real -->
+        <section id="cotizador" class="py-16 bg-slate-900 text-white border-t border-b border-slate-800">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-amber-500 text-xs font-bold uppercase tracking-widest">Simulador Inmediato</span>
+                    <h2 class="text-3xl font-extrabold mt-1">Estimador de Honorarios Sugeridos</h2>
+                    <p class="text-slate-400 text-sm mt-2">Calcule un valor estimado de administración para su consorcio en segundos.</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 shadow-xl">
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Cantidad de Unidades Funcionales</label>
+                            <input type="number" id="calc-unidades" value="20" min="4" max="200" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Ubicación Geográfica</label>
+                            <select id="calc-zona" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-amber-500">
+                                <option value="1">CABA (Capital Federal)</option>
+                                <option value="0.95">GBA Oeste (Ramos Mejía, Haedo, San Justo)</option>
+                                <option value="0.95">GBA Norte / Sur</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Servicios Complejos (Ascensores/Caldera)</label>
+                            <select id="calc-complejidad" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-amber-500">
+                                <option value="1">Básico (Sin ascensores)</option>
+                                <option value="1.15">Estándar (Con 1 ó 2 ascensores)</option>
+                                <option value="1.3">Avanzado (Ascensores + Amenities + Encargado)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-6 rounded-xl border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-medium">Honorario Estimado Mensual (Base Consorcio)</p>
+                            <p class="text-3xl font-extrabold text-amber-400" id="calc-resultado">$ 120.000 / mes</p>
+                            <p class="text-xs text-slate-500 mt-1">* Valor referencial según aranceles vigentes RPA / CAPHAI.</p>
+                        </div>
+                        <a href="#presupuesto" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-lg text-sm whitespace-nowrap transition-colors">
+                            Solicitar Cotización Formal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario Completo de Pedido de Presupuesto -->
+        <section id="presupuesto" class="py-20 bg-slate-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-900 px-8 py-6 text-white border-b border-slate-800">
+                        <h2 class="text-2xl font-bold">Solicitud Formal de Presupuesto</h2>
+                        <p class="text-slate-400 text-sm mt-1">Complete los datos de su consorcio y le enviaremos la propuesta en menos de 24 hs hábiles.</p>
+                    </div>
+
+                    <form id="form-presupuesto" class="p-8 space-y-8">
+                        <!-- Sección 1: Datos Personales -->
+                        <div>
+                            <h3 class="text-sm font-bold text-amber-600 uppercase tracking-wider mb-4 border-b pb-2">1. Datos del Solicitante</h3>
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Nombre Completo *</label>
+                                    <input type="text" required placeholder="Ej: Carlos Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Email de Contacto *</label>
+                                    <input type="email" required placeholder="carlos@ejemplo.com" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Teléfono / WhatsApp *</label>
+                                    <input type="tel" required placeholder="11 1234 5678" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Rol en el Consorcio *</label>
+                                    <select required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                        <option value="">Seleccione rol...</option>
+                                        <option value="consejo">Miembro del Consejo de Propietarios</option>
+                                        <option value="propietario">Propietario / Residente</option>
+                                        <option value="inquilino">Inquilino</option>
+                                        <option value="administrador_saliente">Administrador Saliente</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección 2: Datos del Consorcio -->
+                        <div>
+                            <h3 class="text-sm font-bold text-amber-600 uppercase tracking-wider mb-4 border-b pb-2">2. Datos del Edificio / Consorcio</h3>
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Dirección del Edificio *</label>
+                                    <input type="text" required placeholder="Ej: Av. de Mayo 1234" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Zona / Localidad *</label>
+                                    <select required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                        <option value="caba">CABA - Capital Federal</option>
+                                        <option value="ramos_mejia">Ramos Mejía (La Matanza)</option>
+                                        <option value="gba_oeste">GBA Oeste (Haedo, Morón, San Justo)</option>
+                                        <option value="gba_otros">GBA Norte / GBA Sur</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Cant. Unidades Funcionales (Dptos) *</label>
+                                    <input type="number" required placeholder="Ej: 24" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Cantidad de Pisos *</label>
+                                    <input type="number" required placeholder="Ej: 8" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Encargado / Personal con Retiro</label>
+                                    <select class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none">
+                                        <option value="con_vivienda">Encargado permanente con vivienda</option>
+                                        <option value="sin_vivienda">Encargado sin vivienda</option>
+                                        <option value="empresa_limpieza">Empresa de limpieza tercerizada</option>
+                                        <option value="ninguno">Sin personal actualmente</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Servicios Comunes Específicos</label>
+                                    <div class="space-y-2 pt-2">
+                                        <label class="inline-flex items-center mr-4 text-xs">
+                                            <input type="checkbox" class="rounded text-amber-600 focus:ring-amber-500"> <span class="ml-2">Ascensores</span>
+                                        </label>
+                                        <label class="inline-flex items-center mr-4 text-xs">
+                                            <input type="checkbox" class="rounded text-amber-600 focus:ring-amber-500"> <span class="ml-2">Caldera / Agua Central</span>
+                                        </label>
+                                        <label class="inline-flex items-center text-xs">
+                                            <input type="checkbox" class="rounded text-amber-600 focus:ring-amber-500"> <span class="ml-2">Cocheras / Piscina</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección 3: Documentación y Observaciones -->
+                        <div>
+                            <h3 class="text-sm font-bold text-amber-600 uppercase tracking-wider mb-4 border-b pb-2">3. Observaciones y Documentación</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Comentarios / Situación Actual del Consorcio</label>
+                                    <textarea rows="3" placeholder="Coméntenos motivos del cambio, estado de deudas o requerimientos especiales..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:ring-2 focus:ring-amber-500 focus:bg-white focus:outline-none"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-2">Adjuntar Liquidación Previa (Opcional - PDF o Imagen)</label>
+                                    <input type="file" class="w-full text-xs text-slate-500 border border-slate-300 rounded-lg p-2 bg-slate-50 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold text-base py-4 rounded-xl shadow-lg transition-all">
+                                <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Solicitud de Cotización
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carrusel de Reseñas / Testimonios -->
+        <section id="testimonios" class="py-20 bg-slate-900 text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-amber-500 mb-2">Experiencias Comprobadas</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold">Lo que opinan nuestros consorcios</p>
+                </div>
+
+                <!-- Carousel Container -->
+                <div class="relative max-w-4xl mx-auto">
+                    <div id="carousel-track" class="min-h-[220px] flex items-center justify-center">
+                        <!-- Dynamic Testimonial Slide -->
+                        <div id="testimonial-card" class="bg-slate-800/90 border border-slate-700 p-8 rounded-2xl shadow-xl text-center w-full transition-all duration-500">
+                            <div class="flex justify-center text-amber-400 text-sm mb-4" id="testimonial-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-200 text-lg italic mb-6" id="testimonial-text">
+                                "Cambiamos a Ramos Mejía tras años de expensas poco claras. La auditoría inicial nos ordenó las cuentas y hoy pagamos lo justo con mantenimiento de primera."
+                            </p>
+                            <div>
+                                <h4 class="font-bold text-white" id="testimonial-author">Ing. Roberto Fernandez</h4>
+                                <p class="text-xs text-amber-400" id="testimonial-role">Presidente del Consejo - Consorcio Av. de Mayo, Ramos Mejía</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="flex justify-center items-center space-x-4 mt-8">
+                        <button id="prev-btn" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-amber-500 flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <div class="flex space-x-2" id="carousel-dots">
+                            <!-- Dots injected by JS -->
+                        </div>
+                        <button id="next-btn" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-amber-500 flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección FAQ (Preguntas Frecuentes) -->
+        <section id="faq" class="py-20 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Resolviendo Dudas</h2>
+                    <p class="text-3xl font-extrabold text-slate-900">Preguntas Frecuentes</p>
+                </div>
+
+                <div class="space-y-4" id="faq-accordion">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>¿Cómo se realiza el proceso de cambio de administración?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 text-slate-600 text-sm border-t border-slate-100 leading-relaxed">
+                            Nos encargamos de todo el proceso legal y formal. Se convoca a una Asamblea Extraordinaria conforme al Reglamento de Propiedad Horizontal. Una vez aprobada la designación, intimamos formalmente al administrador saliente la entrega de libros contables, documentación y claves en el plazo legal de 10 días.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>¿Están inscriptos en el Registro Público de Administradores (RPA)?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 text-slate-600 text-sm border-t border-slate-100 leading-relaxed">
+                            Sí. Contamos con matrícula activa habilitante para operar legalmente tanto en la Ciudad Autónoma de Buenos Aires (Ley 941) como en los municipios de la Provincia de Buenos Aires, garantizando total resguardo legal para los copropietarios.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>¿Cómo se gestionan las emergencias fuera del horario de oficina?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 text-slate-600 text-sm border-t border-slate-100 leading-relaxed">
+                            Disponemos de una línea telefónica exclusiva para emergencias de consorcios activa las 24 horas, los 365 días del año. Coordinamos inmediatamente con nuestros plomeros, electricistas o gasistas matriculados de guardia.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                            <span>¿Cómo se manejan los deudores morosos de expensas?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4 text-slate-600 text-sm border-t border-slate-100 leading-relaxed">
+                            Iniciamos una gestión administrativa en tres etapas: intimación de pago a los 30 días, carta documento prejudicial a los 60 días, y pase a nuestro equipo de letrados para ejecución de expensas a partir del tercer mes, protegiendo las finanzas del consorcio.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Corporativo -->
+    <footer class="bg-slate-950 text-slate-400 text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Columna 1 -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-amber-500 rounded flex items-center justify-center text-slate-950 font-bold">
+                            RM
+                        </div>
+                        <span class="text-lg font-bold text-white tracking-wider">CONSORCIOS RM</span>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-400 mb-4">
+                        Administración corporativa e integral de propiedad horizontal. Transparencia, respaldo legal y mantenimiento de excelencia.
+                    </p>
+                    <p class="text-xs text-amber-400 font-semibold">
+                        Inscripción RPA N° 8492 / Ley 941
+                    </p>
+                </div>
+
+                <!-- Columna 2 -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Navegación</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#rol" class="hover:text-amber-400 transition-colors">¿Qué hace el Administrador?</a></li>
+                        <li><a href="#servicios" class="hover:text-amber-400 transition-colors">Servicios Integrales</a></li>
+                        <li><a href="#cotizador" class="hover:text-amber-400 transition-colors">Cotizador de Expensas</a></li>
+                        <li><a href="#presupuesto" class="hover:text-amber-400 transition-colors">Solicitar Presupuesto</a></li>
+                        <li><a href="#faq" class="hover:text-amber-400 transition-colors">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3 -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Contacto & Oficinas</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-start"><i class="fa-solid fa-location-dot text-amber-500 mr-2 mt-0.5"></i> Av. de Mayo 840, Ramos Mejía, Prov. BSAS</li>
+                        <li class="flex items-start"><i class="fa-solid fa-building text-amber-500 mr-2 mt-0.5"></i> Sede CABA: Av. Corrientes 1380, CABA</li>
+                        <li class="flex items-center"><i class="fa-solid fa-phone text-amber-500 mr-2"></i> (011) 4444-5555</li>
+                        <li class="flex items-center"><i class="fa-solid fa-envelope text-amber-500 mr-2"></i> contacto@consorciosramosmejia.com.ar</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4 -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider border-b border-slate-800 pb-2">Horarios de Atención</h4>
+                    <p class="text-xs leading-relaxed mb-2">
+                        <strong>Lunes a Viernes:</strong> 09:00 - 18:00 hs<br>
+                        <strong>Guardia de Urgencias:</strong> 24 horas los 365 días.
+                    </p>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="w-8 h-8 rounded bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2026 Consorcios Ramos Mejía. Todos los derechos reservados.</p>
+                <p class="mt-2 md:mt-0">Diseñado con estándares corporativos de Propiedad Horizontal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Feedback para Formulario -->
+    <div id="modal-feedback" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-200">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">¡Solicitud Enviada!</h3>
+            <p class="text-slate-600 text-sm mb-6">
+                Gracias por comunicarse con Consorcios Ramos Mejía. Un representante de nuestro departamento comercial revisará la información y se pondrá en contacto a la brevedad.
+            </p>
+            <button id="modal-close-btn" class="bg-slate-900 hover:bg-slate-800 text-white font-bold w-full py-3 rounded-xl transition-colors">
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Integrado -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Interactive FAQ Accordion
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+
+                    // Toggle visibility
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            // Interactive Budget Calculator
+            const calcUnidades = document.getElementById('calc-unidades');
+            const calcZona = document.getElementById('calc-zona');
+            const calcComplejidad = document.getElementById('calc-complejidad');
+            const calcResultado = document.getElementById('calc-resultado');
+
+            function calcularPresupuesto() {
+                const u = parseInt(calcUnidades.value) || 10;
+                const z = parseFloat(calcZona.value);
+                const c = parseFloat(calcComplejidad.value);
+
+                // Base formula calculation
+                const baseUnitario = u <= 15 ? 6000 : u <= 40 ? 5200 : 4500;
+                let total = (u * baseUnitario) * z * c;
+
+                // Format as ARS currency
+                calcResultado.textContent = `$ ${Math.round(total).toLocaleString('es-AR')} / mes`;
+            }
+
+            [calcUnidades, calcZona, calcComplejidad].forEach(element => {
+                element.addEventListener('input', calcularPresupuesto);
+                element.addEventListener('change', calcularPresupuesto);
+            });
+
+            // Testimonial Slider Data (5 reviews)
+            const testimonials = [
+                {
+                    text: '"Cambiamos a Ramos Mejía tras años de expensas poco claras. La auditoría inicial nos ordenó las cuentas y hoy pagamos lo justo con mantenimiento de primera."',
+                    author: 'Ing. Roberto Fernández',
+                    role: 'Presidente del Consejo - Consorcio Av. de Mayo, Ramos Mejía'
+                },
+                {
+                    text: '"Destaco la rapidez en la atención de plomería y mantenimiento de ascensores. Ante un reclamo respondan en el día, algo que no lográbamos con administraciones previas."',
+                    author: 'Dra. Patricia Rossi',
+                    role: 'Copropietaria - Edificio Belgrano (CABA)'
+                },
+                {
+                    text: '"La liquidación de sueldos del encargado y el manejo del SUTERH siempre fue impecable. Nos quitaron un dolor de cabeza legal importante."',
+                    author: 'Martín Zabaleta',
+                    role: 'Consejo de Administración - Haedo Norte'
+                },
+                {
+                    text: '"Profesionalismo absoluto. Tienen abogados y arquitectos propios que nos resolvieron la inspección técnica de fachadas en CABA sin costos excesivos."',
+                    author: 'Elena Sola',
+                    role: 'Vecina Administrada - San Justo'
+                },
+                {
+                    text: '"Transparencia digital total. Podemos auditar las facturas y comprobantes online antes de aprobar los pagos de expensas."',
+                    author: 'Gustavo Peralta',
+                    role: 'Propietario - Caballito (CABA)'
+                }
+            ];
+
+            let currentTestimonial = 0;
+            const testimonialText = document.getElementById('testimonial-text');
+            const testimonialAuthor = document.getElementById('testimonial-author');
+            const testimonialRole = document.getElementById('testimonial-role');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Render carousel dots
+            testimonials.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition-colors ${idx === 0 ? 'bg-amber-500' : 'bg-slate-700'}`;
+                dot.addEventListener('click', () => showTestimonial(idx));
+                dotsContainer.appendChild(dot);
+            });
+
+            function showTestimonial(index) {
+                currentTestimonial = index;
+                const item = testimonials[index];
+                
+                // Fade effect
+                const card = document.getElementById('testimonial-card');
+                card.style.opacity = '0.3';
+                
+                setTimeout(() => {
+                    testimonialText.textContent = item.text;
+                    testimonialAuthor.textContent = item.author;
+                    testimonialRole.textContent = item.role;
+                    card.style.opacity = '1';
+
+                    // Update dots
+                    Array.from(dotsContainer.children).forEach((dot, i) => {
+                        dot.className = `w-3 h-3 rounded-full transition-colors ${i === index ? 'bg-amber-500' : 'bg-slate-700'}`;
+                    });
+                }, 150);
+            }
+
+            prevBtn.addEventListener('click', () => {
+                const newIndex = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(newIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const newIndex = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(newIndex);
+            });
+
+            // Auto advance carousel every 6 seconds
+            setInterval(() => {
+                const newIndex = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(newIndex);
+            }, 6000);
+
+            // Form Submit and Modal Handling
+            const formPresupuesto = document.getElementById('form-presupuesto');
+            const modalFeedback = document.getElementById('modal-feedback');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+
+            formPresupuesto.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modalFeedback.classList.remove('hidden');
+                formPresupuesto.reset();
+            });
+
+            modalCloseBtn.addEventListener('click', () => {
+                modalFeedback.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
